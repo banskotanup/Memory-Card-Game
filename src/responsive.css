@@ -1,0 +1,47 @@
+@media (max-width: 669px){
+    header p{
+        text-align: center;
+    }
+    .level{
+        transform: translateY(0);
+    }
+    
+    .difficulty-selector{
+        transform: translateY(0);
+        transform: translateY(0);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .difficulty-selector div{
+        text-align: center;
+        display: flex;
+    }
+
+    .difficulty-selector div button{
+        margin: 10px;
+        margin-top: 20px;
+        width: 100px;
+    }
+
+    .gameboard{
+        grid-template-columns: repeat(2, minmax(120px, 1fr));
+        transform: translateY(0);
+    }
+
+    footer{
+        transform: translateY(0);
+        height: 30px;
+    }
+
+    footer p{
+        margin-top: 30px;
+        transform: translateY(-20px);
+    }
+
+
+    html{
+        overflow-x: hidden;
+    }
+}
