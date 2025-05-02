@@ -3,6 +3,8 @@ import Header from "./components/Header";
 import GameBoard from "./components/GameBoard";
 import { getPokemonData } from "./utils/fetchPokemon";
 import DifficultySelector from "./components/DifficultySelector";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function App() {
   const [difficulty, setDifficulty] = useState(12);
@@ -13,6 +15,13 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [gameOver, setGameOver] = useState(false);
   const [status, setStatus] = useState("play");
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1500,
+      once: true,
+    });
+  }, []);
 
   useEffect(() => {
     async function loadCards() {
@@ -26,6 +35,7 @@ function App() {
     }
 
     loadCards();
+    AOS.refresh();
   }, [difficulty]);
 
   function shuffle(array) {
@@ -98,13 +108,15 @@ function App() {
           ) : (
             <div>
               <DifficultySelector setDifficulty={setDifficulty} />
-              <p className="level">
-                {difficulty === 6
-                  ? "Level: EASY"
-                  : difficulty === 12
-                  ? "Level: MEDIUM"
-                  : "Level: HARD"}
-              </p>
+              <div className="level-wrapper">
+                <p className="level">
+                  {difficulty === 6
+                    ? "Level: EASY"
+                    : difficulty === 12
+                    ? "Level: MEDIUM"
+                    : "Level: HARD"}
+                </p>
+              </div>
               {loading ? (
                 <div className="spinnerWrapper">
                   <p>Loading pokemon</p>

@@ -66,10 +66,29 @@ header p{
   text-align: start;
 }
 
+.level-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh; /* adjust to fit layout */
+}
+
 .level{
   font-family: "Bungee Tint", sans-serif;
   font-size: 2em;
   transform: translateY(-10vh);
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typing 3s steps(16);
+}
+
+@keyframes typing {
+  from{
+    width: 0;
+  }
+  to{
+    width: 13ch;
+  }
 }
 
 .gameboard {
