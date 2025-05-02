@@ -35,16 +35,23 @@ function App() {
   function handleClick(id) {
     if (clicked.includes(id)) {
       setGameOver(true);
-      setStatus("over");
+      setStatus("lose");
       const score = document.querySelector(".score");
       score.classList.add("no-display-score");
-    } else {
-      const newScore = score + 1;
-      setScore(newScore);
-      setBestScore(Math.max(score, bestScore));
-      setClicked([...clicked, id]);
     }
-    setCards(shuffle([...cards]));
+    const newClicked = [...clicked, id];
+    const newScore = score + 1;
+    setClicked(newClicked);
+    setScore(newScore);
+    setBestScore(Math.max(newScore, bestScore));
+
+    if (newClicked.length === difficulty) {
+      setGameOver(true);
+      setStatus("win");
+      document.querySelector(".score")?.classList.add("no-display-score");
+    } else {
+      setCards(shuffle([...cards]));
+    }
   }
 
   async function handlePlayAgain() {
@@ -74,6 +81,12 @@ function App() {
               <div className="spinnerWrapper">
                 <p>Loading game...</p>
                 <div className="spinner"></div>
+              </div>
+            ) : status === "win" ? (
+              <div className="game-over">
+                <p className="over">You won!!!</p>
+                <p className="final-score">Score: {score}</p>
+                <button onClick={handlePlayAgain}>Play again</button>
               </div>
             ) : (
               <div className="game-over">
