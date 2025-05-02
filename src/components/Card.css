@@ -42,6 +42,14 @@
     .card-front p{
       font-size: 1.0em;
     }
+
+    .card-front{
+      height: 25vh;
+    }
+
+    .card-container{
+      margin-bottom: 25vh;
+    }
   }
   
   .card-front {

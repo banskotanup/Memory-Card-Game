@@ -105,7 +105,7 @@ header p{
   border-radius: 50%;
   height: 15px;
   width: 15px;
-  border-top: 3px solid darkblue;
+  border-top: 3px solid darkred;
   animation: 2s spin linear infinite;
 }
 
