@@ -82,6 +82,10 @@ header p{
   animation: typing 3s steps(16);
 }
 
+[data-aos="fade"] {
+  transform: translateY(-5vh) !important;
+}
+
 @keyframes typing {
   from{
     width: 0;
@@ -196,6 +200,10 @@ header p{
   border-radius: 20px;
   transform: translateY(-5vh);
   cursor: pointer;
+}
+
+[data-aos="fade-up"] {
+  transform: translateY(-5vh) !important;
 }
 
 .game-over button:hover{

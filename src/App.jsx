@@ -94,15 +94,15 @@ function App() {
               </div>
             ) : status === "win" ? (
               <div className="game-over">
-                <p className="over">You won!!!</p>
-                <p className="final-score">Score: {score}</p>
-                <button onClick={handlePlayAgain}>Play again</button>
+                <p className="over" data-aos="flip-left" data-aos-delay="100">You won!!!</p>
+                <p className="final-score" data-aos="fade" data-aos-delay="300">Score: {score}</p>
+                <button onClick={handlePlayAgain} data-aos="fade-up" data-aos-delay="400">Play again</button>
               </div>
             ) : (
               <div className="game-over">
-                <p className="over">Game Over</p>
-                <p className="final-score">Score: {score}</p>
-                <button onClick={handlePlayAgain}>Play again</button>
+                <p className="over" data-aos="flip-left" data-aos-delay="100">Game Over</p>
+                <p className="final-score" data-aos="fade" data-aos-delay="300">Score: {score}</p>
+                <button onClick={handlePlayAgain} data-aos="fade-up" data-aos-delay="400">Play again</button>
               </div>
             )
           ) : (
